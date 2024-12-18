@@ -23,13 +23,13 @@ export default function Contact() {
           {/* Header */}
           <div className="text-center mb-16 animate-fade-up">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Let's Create Something
+              Let&apos;s Create Something
               <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
                 Extraordinary
               </span>
             </h1>
             <p className="mt-4 text-lg text-gray-400">
-              Ready to bring your vision to life? Let's discuss your next project.
+              Ready to bring your vision to life? Let&apos;s discuss your next project.
             </p>
           </div>
 
