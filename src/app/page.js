@@ -190,7 +190,7 @@ export default function Home() {
               <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
                 <div className="w-48 h-48 relative rounded-full overflow-hidden border-2 border-gray-800">
                   <Image
-                    src="/placeholder-director.jpg"
+                    src="/Images/JackRottier/Image1.jpg"
                     alt="Jack Rottier"
                     fill
                     className="object-cover"
@@ -219,17 +219,42 @@ export default function Home() {
                   Featured Artists
                 </h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="aspect-square relative rounded-lg overflow-hidden group">
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                      <Image
-                        src={`/artist-${i}.jpg`}
-                        alt={`Featured Artist ${i}`}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                  ))}
+                  <div className="aspect-square relative rounded-lg overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <Image
+                      src="/Images/Works/Yeat.webp"
+                      alt="Yeat"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="aspect-square relative rounded-lg overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <Image
+                      src="/Images/Works/JuicyJ.webp"
+                      alt="Juicy J"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="aspect-square relative rounded-lg overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <Image
+                      src="/Images/Works/BLPKosher.jpeg"
+                      alt="BLP Kosher"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="aspect-square relative rounded-lg overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <Image
+                      src="/Images/Works/BabyTron.webp"
+                      alt="Baby Tron"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
