@@ -127,7 +127,7 @@ export default function Home() {
             </h1>
             
             <p className="max-w-xl mx-auto mb-8 text-lg text-gray-300">
-              Visionary music video director behind viral hits, crafting iconic visual experiences that define artists and captivate millions of viewers worldwide. 
+              Visionary music video director behind viral hits, crafting iconic visual experiences that define artists and captivate millions of viewers worldwide.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 mb-16">
@@ -177,7 +177,7 @@ export default function Home() {
                 </h2>
                 <p className="text-gray-300 max-w-3xl">
                   A creative powerhouse dedicated to transforming musical visions into compelling visual narratives. 
-                  We specialize in crafting high-end music videos that resonate with audiences and elevate artists' brands. Delivering music videos & content for over 100 million viewers.
+                  We specialize in crafting high-end music videos that resonate with audiences and elevate artists&apos; brands.
                 </p>
               </div>
               <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -202,7 +202,7 @@ export default function Home() {
                   </h2>
                   <p className="text-gray-300 max-w-2xl">
                     Award-winning director known for pushing creative boundaries and delivering groundbreaking music videos. 
-                    With a keen eye for storytelling and visual innovation, Jack has collaborated with some of the industry's 
+                    With a keen eye for storytelling and visual innovation, Jack has collaborated with some of the industry&apos;s 
                     most influential artists.
                   </p>
                 </div>
@@ -244,8 +244,8 @@ export default function Home() {
                   Ready to Create?
                 </h2>
                 <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-                  Let's bring your vision to life. Whether you're an artist, label, or brand, 
-                  we're here to create something extraordinary together.
+                  Let&apos;s bring your vision to life. Whether you&apos;re an artist, label, or brand, 
+                  we&apos;re here to create something extraordinary together.
                 </p>
                 <Link
                   href="/contact"

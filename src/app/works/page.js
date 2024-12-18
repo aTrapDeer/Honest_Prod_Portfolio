@@ -26,7 +26,7 @@ const artists = [
   {
     name: 'Baby Tron',
     image: '/Images/Works/BabyTron.webp',
-    description: "Detroit\\'s finest, known for witty wordplay and unique style",
+    description: "Detroit&apos;s finest, known for witty wordplay and unique style",
     videos: [
       { title: 'Emperor of the Universe', videoId: 'example3' },
       { title: 'Jesus Shuttlesworth', videoId: 'example4' }
@@ -86,60 +86,51 @@ export default function Works() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Header Section - Updated to be more subtle */}
-      <div className="relative h-[20vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-violet-600/10" />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+      {/* Header Section */}
+      <div className="relative h-[40vh] flex items-center justify-center">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-violet-600/20" />
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
+        <div className="relative z-10 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400 mb-4">
             Our Works
           </h1>
+          <p className="text-gray-300 max-w-2xl mx-auto px-4">
+            Explore our collection of groundbreaking music videos and visual experiences
+          </p>
         </div>
       </div>
 
-      {/* Artists List - Added top padding to compensate for smaller header */}
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="space-y-8">
+      {/* Artists Grid */}
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {artists.map((artist) => (
             <div
               key={artist.name}
               onClick={() => openArtistModal(artist)}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 hover:border-gray-700 transition-all duration-300 cursor-pointer"
+              className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer"
             >
-              <div className="flex flex-col md:flex-row items-center p-6 md:p-8">
-                {/* Artist Image */}
-                <div className="w-48 h-48 relative rounded-xl overflow-hidden mb-6 md:mb-0">
-                  <Image
-                    src={artist.image}
-                    alt={artist.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-
-                {/* Artist Info */}
-                <div className="md:ml-8 text-center md:text-left flex-1">
-                  <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
-                    {artist.name}
-                  </h3>
-                  <p className="text-gray-400 mb-4">{artist.description}</p>
-                  <p className="text-sm text-gray-500">{artist.videos.length} Videos Available</p>
-                </div>
-
-                {/* Arrow Icon */}
-                <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white/5 group-hover:bg-white/10 transition-colors">
-                  <svg
-                    className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
+              {/* Artist Image */}
+              <div className="absolute inset-0">
+                <Image
+                  src={artist.image}
+                  alt={artist.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-70 transition-opacity" />
+              </div>
+              
+              {/* Artist Info */}
+              <div className="absolute inset-0 flex flex-col justify-end p-6">
+                <h3 className="text-2xl font-bold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  {artist.name}
+                </h3>
+                <div className="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                  <span className="text-blue-400">{artist.videos.length} Videos</span>
+                  <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </div>
               </div>
@@ -154,18 +145,18 @@ export default function Works() {
           <div className="relative w-full max-w-4xl bg-gradient-to-br from-gray-900 to-black rounded-2xl p-6 md:p-8">
             <button
               onClick={closeArtistModal}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white"
+              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
-            <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+            <h2 className="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
               {selectedArtist.name} Videos
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {selectedArtist.videos.map((video) => (
                 <button
                   key={video.videoId}
@@ -204,7 +195,7 @@ export default function Works() {
           <div className="relative w-full max-w-5xl">
             <button
               onClick={closeVideoModal}
-              className="absolute -top-12 right-0 text-gray-400 hover:text-white"
+              className="absolute -top-12 right-0 text-gray-400 hover:text-white transition-colors"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
