@@ -55,10 +55,35 @@ const artists = [
     image: '/Images/Works/DaveBlunts.jpg',
     description: "Innovative artist pushing creative boundaries",
     videos: [
-      { title: 'Video 1', videoId: 'example9' },
-      { title: 'Video 2', videoId: 'example10' }
+      { title: 'The Cup', videoId: 'Ssj5ZBuhwIo' },
     ]
-  }
+  },
+{
+  name: 'RONDODASOSA',
+  image: '/Images/Works/Rondodasosa.jpeg',
+  description: "Rising star with a unique vision and sound",
+  videos: [
+    { title: 'SRT', videoId: 'nqIU_ipnFZU' }
+  ]
+},
+{
+  name: 'Rich Amiri',
+  image: '/Images/Works/RichAmiri.jpeg',
+  description: "Rising star with a unique vision and sound",
+  videos: [
+    { title: 'Bounty', videoId: 'JHPnZWRfdqU' },
+  ]
+},
+{
+  name: 'Keshore',
+  image: '/Images/Works/Keshore.jpg',
+  description: "Rising star with a unique vision and sound",
+  videos: [
+    { title: 'Kali Uchis 2 (feat. Destin Laurel', videoId: 'mLJ-l77Cd4g' },
+    { title: 'Orange Juice', videoId: 'TR-cP_a2ic0' },
+    { title: 'Sweet Coochie', videoId: 'q1jCzsp2Zv0' },
+  ]
+}
 ];
 
 export default function Works() {
