@@ -261,6 +261,68 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Press Section */}
+          <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black p-8 border border-gray-800">
+              <div className="relative z-10">
+                <h2 className="text-3xl font-bold mb-8 text-center">
+                  Featured In
+                </h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
+                    <Image
+                      src="/Images/press/djakademiks.jpeg"
+                      alt="DJ Akademiks"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
+                    <Image
+                      src="/Images/press/ourgeneration.jpg"
+                      alt="Our Generation Music"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
+                    <Image
+                      src="/Images/press/source.jpg"
+                      alt="The Source"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
+                    <Image
+                      src="/Images/press/raptv.jpg"
+                      alt="Rap TV"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
+                    <Image
+                      src="/Images/press/pitchfork.jpg"
+                      alt="Pitchfork"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
+                    <Image
+                      src="/Images/press/broadwayworld.png"
+                      alt="Broadway World"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl"></div>
+            </div>
+          </div>
+
           {/* Contact Section */}
           <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black p-8 border border-gray-800">
