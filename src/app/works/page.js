@@ -6,7 +6,7 @@ import Image from 'next/image';
 const artists = [
   {
     name: 'Yeat',
-    image: '/artists/yeat.jpg',
+    image: '/Images/Works/Yeat.webp',
     description: "Chart-topping artist known for innovative sound and viral hits",
     videos: [
       { title: 'Money twërk', videoId: 'yxqKjvNQr9k' },
@@ -16,7 +16,7 @@ const artists = [
   },
   {
     name: 'Summrs',
-    image: '/artists/summrs.jpg',
+    image: '/Images/Works/Summrs.webp',
     description: "Underground sensation pushing musical boundaries",
     videos: [
       { title: 'Test Sum', videoId: 'example1' },
@@ -25,7 +25,7 @@ const artists = [
   },
   {
     name: 'Baby Tron',
-    image: '/artists/babytron.jpg',
+    image: '/Images/Works/BabyTron.webp',
     description: "Detroit\\'s finest, known for witty wordplay and unique style",
     videos: [
       { title: 'Emperor of the Universe', videoId: 'example3' },
@@ -34,7 +34,7 @@ const artists = [
   },
   {
     name: 'Juicy J',
-    image: '/artists/juicyj.jpg',
+    image: '/Images/Works/JuicyJ.webp',
     description: "Legendary rapper and producer with timeless hits",
     videos: [
       { title: 'Video 1', videoId: 'example5' },
@@ -43,7 +43,7 @@ const artists = [
   },
   {
     name: 'BLP Kosher',
-    image: '/artists/blpkosher.jpg',
+    image: '/Images/Works/BLPKosher.jpeg',
     description: "Rising star with a unique vision and sound",
     videos: [
       { title: 'Video 1', videoId: 'example7' },
@@ -52,7 +52,7 @@ const artists = [
   },
   {
     name: 'Dave Blunts',
-    image: '/artists/daveblunts.jpg',
+    image: '/Images/Works/DaveBlunts.jpg',
     description: "Innovative artist pushing creative boundaries",
     videos: [
       { title: 'Video 1', videoId: 'example9' },

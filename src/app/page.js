@@ -127,7 +127,7 @@ export default function Home() {
             </h1>
             
             <p className="max-w-xl mx-auto mb-8 text-lg text-gray-300">
-              Visionary music video director behind viral hits, crafting iconic visual experiences that define artists and captivate millions of viewers worldwide.
+              Visionary music video director behind viral hits, crafting iconic visual experiences that define artists and captivate millions of viewers worldwide. 
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 mb-16">
@@ -138,7 +138,7 @@ export default function Home() {
                 Contact
               </Link>
               <Link
-                href="#works"
+                href="/works"
                 className="px-8 py-3 text-sm font-medium transition-colors rounded-full border border-white/20 hover:bg-white/10"
               >
                 Our Works
@@ -177,7 +177,7 @@ export default function Home() {
                 </h2>
                 <p className="text-gray-300 max-w-3xl">
                   A creative powerhouse dedicated to transforming musical visions into compelling visual narratives. 
-                  We specialize in crafting high-end music videos that resonate with audiences and elevate artists' brands.
+                  We specialize in crafting high-end music videos that resonate with audiences and elevate artists' brands. Delivering music videos & content for over 100 million viewers.
                 </p>
               </div>
               <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
