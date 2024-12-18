@@ -9,18 +9,18 @@ const artists = [
     image: '/Images/Works/Yeat.webp',
     description: "Chart-topping artist known for innovative sound and viral hits",
     videos: [
-      { title: 'Money twërk', videoId: 'yxqKjvNQr9k' },
-      { title: 'Talk', videoId: 'FFq6dydvQG4' },
-      { title: 'Lët ya know', videoId: 'VNzxvqVPEEE' }
+      { title: 'Gët Busy', videoId: 'bd5l5NtzoWc' },
+      { title: 'GO2WORK', videoId: 'NEFEwfPcXRA' },
+      { title: 'Never Again', videoId: 'n0iZ4eZqp90' }
     ]
   },
   {
-    name: 'Summrs',
-    image: '/Images/Works/Summrs.webp',
+    name: 'Xavier Wulf',
+    image: '/Images/Works/XavierWulf.jpg',
     description: "Underground sensation pushing musical boundaries",
     videos: [
-      { title: 'Test Sum', videoId: 'example1' },
-      { title: 'Ghost Glocks', videoId: 'example2' }
+      { title: 'Wulf Pesci', videoId: '8lZtA8D2GRk' },
+      { title: 'The Truth (feat. Juicy J)', videoId: 'qxJf8Ulmi-Y' }
     ]
   },
   {
@@ -172,13 +172,22 @@ export default function Works() {
                   onClick={() => openVideoModal(video)}
                   className="group relative aspect-video rounded-xl overflow-hidden bg-gray-900 hover:bg-gray-800 transition-colors"
                 >
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  {/* YouTube Thumbnail */}
+                  <Image
+                    src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
+                    alt={video.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {/* Overlay with Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/30 transition-colors">
                     <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
                       <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
                   </div>
+                  {/* Video Title */}
                   <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                     <p className="text-white font-medium">{video.title}</p>
                   </div>
