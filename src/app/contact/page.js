@@ -20,26 +20,15 @@ export default function Contact() {
     <div className="min-h-screen bg-black/95">
       <div className="container px-4 py-24 mx-auto">
         <div className="max-w-5xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16 animate-fade-up">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Let&apos;s Create Something
-              <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
-                Extraordinary
-              </span>
-            </h1>
-            <p className="mt-4 text-lg text-gray-400">
-              Ready to bring your vision to life? Let&apos;s discuss your next project.
-            </p>
-          </div>
+
 
           <div className="grid gap-8 md:grid-cols-2">
             {/* Contact Information */}
             <div className="space-y-8 animate-fade-up">
               <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm">
                 <h3 className="mb-4 text-xl font-semibold text-white">Location</h3>
-                <p className="text-gray-400">Los Angeles, CA</p>
-                <p className="text-gray-400">Available for worldwide projects</p>
+                <p className="text-gray-400">Based in Los Angeles, CA</p>
+                <p className="text-gray-400">Outside of Los Angeles requires additional fees</p>
               </div>
 
               <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm">
@@ -125,7 +114,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 text-sm font-medium text-black transition-colors rounded-full bg-gradient-to-r from-blue-400 to-violet-400 hover:from-blue-500 hover:to-violet-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                  className="w-full px-8 py-4 text-sm font-medium text-white transition-all rounded-full bg-gradient-to-r from-[#B45AFF] to-[#FF6B6B] hover:from-[#C76FFF] hover:to-[#FF8585] shadow-lg hover:shadow-xl hover:scale-105 transform duration-200 focus:outline-none focus:ring-2 focus:ring-[#B45AFF] focus:ring-offset-2 focus:ring-offset-black"
                 >
                   Send Message
                 </button>
