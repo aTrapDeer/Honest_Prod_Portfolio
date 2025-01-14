@@ -3,6 +3,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { AnimatedCounter } from "@/components/ui/animated-counter.js";
+
+function CounterWrapper() {
+  const [isInView, setIsInView] = useState(false);
+  const counterRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isInView) {
+            setIsInView(true);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "50px",
+      }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isInView]);
+
+  return (
+    <div ref={counterRef} className="transform-gpu">
+      <AnimatedCounter value={124000000} inView={isInView} />
+    </div>
+  );
+}
 
 export default function Home() {
   const sectionsRef = useRef(null);
@@ -147,6 +182,22 @@ export default function Home() {
             </div>
           </div>
 
+          {/* View Counter Section */}
+          <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black p-8 border border-gray-800">
+              <div className="relative z-10 flex flex-col items-center justify-center text-center">
+                <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00FFB3] via-[#B45AFF] to-[#FF6B6B]">
+                  Total YouTube Views
+                </h2>
+                <div className="flex items-center justify-center mb-4">
+                  <CounterWrapper />
+                </div>
+                <p className="text-gray-400 text-sm">And Growing...</p>
+              </div>
+              <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+            </div>
+          </div>
+
           {/* Artists Section */}
           <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black p-8 border border-gray-800">
@@ -194,68 +245,6 @@ export default function Home() {
                 </div>
               </div>
               <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-            </div>
-          </div>
-
-          {/* Press Section */}
-          <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black p-8 border border-gray-800">
-              <div className="relative z-10">
-                <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#B45AFF] to-[#00FFB3]">
-                  Featured In
-                </h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
-                    <Image
-                      src="/Images/press/djakademiks.jpeg"
-                      alt="DJ Akademiks"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
-                    <Image
-                      src="/Images/press/ourgeneration.jpg"
-                      alt="Our Generation Music"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
-                    <Image
-                      src="/Images/press/source.jpg"
-                      alt="The Source"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
-                    <Image
-                      src="/Images/press/raptv.jpg"
-                      alt="Rap TV"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
-                    <Image
-                      src="/Images/press/pitchfork.jpg"
-                      alt="Pitchfork"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="relative h-12 grayscale hover:grayscale-0 transition-all duration-300">
-                    <Image
-                      src="/Images/press/broadwayworld.png"
-                      alt="Broadway World"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl"></div>
             </div>
           </div>
 
@@ -312,6 +301,65 @@ export default function Home() {
                 </div>
               </div>
               <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl"></div>
+            </div>
+
+            {/* Press Section - Minimized */}
+            <div className="mt-16 border-t border-gray-800/30">
+              <div className="py-6">
+                <div className="max-w-4xl mx-auto">
+                  <p className="text-sm text-gray-400 text-center mb-4">Featured In</p>
+                  <div className="flex flex-wrap justify-center items-center gap-6 px-4">
+                    <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                      <Image
+                        src="/Images/press/djakademiks.jpeg"
+                        alt="DJ Akademiks"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                      <Image
+                        src="/Images/press/ourgeneration.jpg"
+                        alt="Our Generation Music"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                      <Image
+                        src="/Images/press/source.jpg"
+                        alt="The Source"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                      <Image
+                        src="/Images/press/raptv.jpg"
+                        alt="Rap TV"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                      <Image
+                        src="/Images/press/pitchfork.jpg"
+                        alt="Pitchfork"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                      <Image
+                        src="/Images/press/broadwayworld.png"
+                        alt="Broadway World"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -134,9 +134,9 @@ export default function Works() {
       </div>
 
       {/* Featured Playlist Section */}
-      <div className="max-w-7xl mx-auto px-4 -mt-20">
-        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-gray-800 p-8">
-          <h2 className="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 -mt-20">
+        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-gray-800 p-4 sm:p-8">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
             Featured Videos
             <span className="ml-3 text-sm font-normal text-gray-400 bg-gray-800/50 px-3 py-1 rounded-full">
               {musicVideos.videos.length} Videos
@@ -144,27 +144,25 @@ export default function Works() {
           </h2>
           
           {/* Main Video */}
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="md:col-span-3">
-              <div className="relative rounded-xl overflow-hidden bg-gray-900/50 border border-gray-800/50">
-                <div className="relative pt-[56.25%]">
-                  <iframe
-                    className="absolute inset-0 w-full h-full"
-                    src={`https://www.youtube.com/embed/${musicVideos.videos[currentVideoIndex].videoId}`}
-                    title={musicVideos.videos[currentVideoIndex].title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
+          <div className="mb-6 sm:mb-12">
+            <div className="relative rounded-lg sm:rounded-xl overflow-hidden bg-gray-900/30 border border-gray-800/30">
+              <div className="relative pt-[56.25%]">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={`https://www.youtube.com/embed/${musicVideos.videos[currentVideoIndex].videoId}`}
+                  title={musicVideos.videos[currentVideoIndex].title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>
             
           {/* Horizontal Carousel with Arrows */}
           <div className="relative">
-            <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-between">
+            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4 flex items-center justify-between">
               <span>Next Up</span>
-              <span className="text-sm font-normal text-gray-400">
+              <span className="text-xs sm:text-sm font-normal text-gray-400">
                 Video {currentVideoIndex + 1} of {musicVideos.videos.length}
               </span>
             </h4>
@@ -175,9 +173,9 @@ export default function Works() {
                   const container = document.getElementById('video-carousel');
                   container.scrollBy({ left: -container.offsetWidth, behavior: 'smooth' });
                 }}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/80 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 sm:w-12 h-8 sm:h-12 flex items-center justify-center rounded-full bg-black/80 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black"
               >
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
@@ -188,9 +186,9 @@ export default function Works() {
                   const container = document.getElementById('video-carousel');
                   container.scrollBy({ left: container.offsetWidth, behavior: 'smooth' });
                 }}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/80 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 sm:w-12 h-8 sm:h-12 flex items-center justify-center rounded-full bg-black/80 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black"
               >
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
@@ -200,12 +198,12 @@ export default function Works() {
                 id="video-carousel"
                 className="overflow-hidden"
               >
-                <div className="flex space-x-4 transition-transform duration-300 ease-out">
+                <div className="flex space-x-2 sm:space-x-4 transition-transform duration-300 ease-out">
                   {musicVideos.videos.map((video, index) => (
                     <button
                       key={video.videoId}
                       onClick={() => playVideo(index)}
-                      className={`flex-shrink-0 w-64 group ${
+                      className={`flex-shrink-0 w-40 sm:w-64 group ${
                         currentVideoIndex === index
                           ? 'ring-2 ring-blue-500 rounded-lg'
                           : ''
@@ -220,8 +218,8 @@ export default function Works() {
                         />
                         {currentVideoIndex !== index && (
                           <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform">
-                              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform">
+                              <svg className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z" />
                               </svg>
                             </div>
@@ -229,10 +227,10 @@ export default function Works() {
                         )}
                       </div>
                       <div className="mt-2">
-                        <p className="text-sm font-medium text-white line-clamp-1 group-hover:text-blue-400 transition-colors">
+                        <p className="text-xs sm:text-sm font-medium text-white line-clamp-1 group-hover:text-blue-400 transition-colors">
                           {video.title}
                         </p>
-                        <p className="text-xs text-gray-400 mt-1">
+                        <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5 sm:mt-1">
                           {video.artist}
                         </p>
                       </div>
