@@ -7,7 +7,7 @@ const fontSize = 30;
 const padding = 15;
 const height = fontSize + padding;
 
-export function AnimatedCounter({ value, inView = true }) {
+export function AnimatedCounter({ value, inView = true, label = "Views" }) {
   const count = useMotionValue(0);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export function AnimatedCounter({ value, inView = true }) {
       className="flex items-center space-x-1 overflow-hidden rounded-lg bg-black/30 backdrop-blur-sm px-4 py-2 leading-none text-white border border-white/10"
     >
       <motion.div>{displayValue}</motion.div>
-      <span className="ml-2 text-sm text-gray-400">Views</span>
+      <span className="ml-2 text-sm text-gray-400">{label}</span>
     </div>
   );
 } 

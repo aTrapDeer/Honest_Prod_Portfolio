@@ -12,7 +12,12 @@ const artists = [
     videos: [
       { title: 'Gët Busy', videoId: 'bd5l5NtzoWc' },
       { title: 'GO2WORK', videoId: 'NEFEwfPcXRA' },
-      { title: 'Never Again', videoId: 'n0iZ4eZqp90' }
+      { title: 'Never Again', videoId: 'n0iZ4eZqp90' },
+      { title: 'All of it (ft. Yung Kayo)', videoId: 'pXIdpFsyTdo' },
+      { title: 'CMON', videoId: 'E_GmzW__MRA' },
+      { title: 'MAD BOUT THAT', videoId: '-As2ehJX8Pk' },
+      { title: 'FUKIT', videoId: '6dPMOotLMiQ'},
+      { title: 'Monëy Twerk', videoId: 'Udi5-qWw4Dw'}
     ]
   },
   {
@@ -21,7 +26,9 @@ const artists = [
     description: "Underground sensation pushing musical boundaries",
     videos: [
       { title: 'Wulf Pesci', videoId: '8lZtA8D2GRk' },
-      { title: 'The Truth (feat. Juicy J)', videoId: 'qxJf8Ulmi-Y' }
+      { title: 'The Truth (feat. Juicy J)', videoId: 'qxJf8Ulmi-Y' },
+      { title: 'HOONIGAN', videoId: 'XoYaJZAVnK0'},
+      { title: 'No Man (feat. Juicy J)', videoId: 'U9oZKpDMrb0' },
     ]
   },
   {
@@ -29,8 +36,9 @@ const artists = [
     image: '/Images/Works/BabyTron.webp',
     description: "Detroit&apos;s finest, known for witty wordplay and unique style",
     videos: [
-      { title: 'Emperor of the Universe', videoId: 'example3' },
-      { title: 'Jesus Shuttlesworth', videoId: 'example4' }
+      { title: '3 Stooges Ft. BLP Kosher & Certified Trapper', videoId: 'u3-acd3nbpM' },
+      { title: 'Rage Quit', videoId: 'HQdNHdDc_GM' },
+      { title: 'Wake Tf Up', videoId: 'YriJduLzS34' },
     ]
   },
   {
@@ -38,8 +46,12 @@ const artists = [
     image: '/Images/Works/JuicyJ.webp',
     description: "Legendary rapper and producer with timeless hits",
     videos: [
-      { title: 'Video 1', videoId: 'example5' },
-      { title: 'Video 2', videoId: 'example6' }
+      { title: 'The Truth (feat. Xavier Wulf)', videoId: 'qxJf8Ulmi-Y' },
+      { title: 'Serenity', videoId: 'pNbbwcTwiPc' },
+      {title: 'Bury My Problems', videoId: 'jJvdSxYlxWs'},
+      { title: 'Drink To Escape', videoId: 'w_6v1DNoHxA' },
+      { title: 'No Man (feat. Xavier Wulf)', videoId: 'U9oZKpDMrb0' },
+      { title: 'Going Through Sum Sh..', videoId: 'Apc4MYu3HT4'}
     ]
   },
   {
@@ -47,8 +59,8 @@ const artists = [
     image: '/Images/Works/BLPKosher.jpeg',
     description: "Rising star with a unique vision and sound",
     videos: [
-      { title: 'Video 1', videoId: 'example7' },
-      { title: 'Video 2', videoId: 'example8' }
+      { title: 'Close Proximity', videoId: 'ruSIE1K-kb4' },
+      { title: 'Hour Glass', videoId: 'NTTEpDQ3IpI' }
     ]
   },
   {
@@ -284,7 +296,15 @@ export default function Works() {
 
       {/* Artist Videos Modal */}
       {selectedArtist && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95"
+          onClick={(e) => {
+            // Close only if clicking the overlay (not the modal content)
+            if (e.target === e.currentTarget) {
+              closeArtistModal();
+            }
+          }}
+        >
           <div className="relative w-full max-w-4xl bg-gradient-to-br from-gray-900 to-black rounded-2xl p-6 md:p-8">
             <button
               onClick={closeArtistModal}
@@ -334,7 +354,15 @@ export default function Works() {
 
       {/* Video Player Modal */}
       {isVideoModalOpen && selectedVideo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95"
+          onClick={(e) => {
+            // Close only if clicking the overlay (not the modal content)
+            if (e.target === e.currentTarget) {
+              closeVideoModal();
+            }
+          }}
+        >
           <div className="relative w-full max-w-5xl">
             <button
               onClick={closeVideoModal}

@@ -146,10 +146,19 @@ export default function Home() {
                 <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00FFB3] to-[#FF6B6B]">
                   About Honest Productions
                 </h2>
-                <p className="text-[#E6E6E6] max-w-3xl">
+                <p className="text-[#E6E6E6] max-w-3xl mb-6">
                   A creative powerhouse dedicated to transforming musical visions into compelling visual narratives. 
                   We specialize in crafting high-end music videos that resonate with audiences and elevate artists&apos; brands.
                 </p>
+                <Link
+                  href="/bts"
+                  className="inline-flex items-center px-6 py-2.5 text-sm font-medium transition-all rounded-full border-2 border-[#00FFB3]/60 hover:border-[#00FFB3] hover:bg-[#00FFB3]/20 text-[#00FFB3] hover:text-white shadow-lg hover:shadow-xl hover:scale-105 transform duration-200"
+                >
+                  <span>Behind The Scenes</span>
+                  <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
               </div>
               <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
             </div>
