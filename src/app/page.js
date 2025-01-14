@@ -40,7 +40,26 @@ function CounterWrapper() {
 }
 
 export default function Home() {
+  const [logoVisible, setLogoVisible] = useState(true);
+  const [buttonsVisible, setButtonsVisible] = useState(true);
   const sectionsRef = useRef(null);
+
+  useEffect(() => {
+    // Logo fades after 3.5 seconds
+    const logoTimer = setTimeout(() => {
+      setLogoVisible(false);
+    }, 3500);
+
+    // Buttons fade 0.5 seconds after the logo
+    const buttonsTimer = setTimeout(() => {
+      setButtonsVisible(false);
+    }, 4000);
+
+    return () => {
+      clearTimeout(logoTimer);
+      clearTimeout(buttonsTimer);
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,7 +109,7 @@ export default function Home() {
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-white">
           <div className="max-w-3xl mx-auto text-center animate-fade-up">
-            <div className="mb-8 relative w-full max-w-lg mx-auto">
+            <div className={`mb-8 relative w-full max-w-lg mx-auto transition-opacity duration-1000 ${logoVisible ? 'opacity-100' : 'opacity-0'}`}>
               <Image
                 src="/honestlogo.png"
                 alt="Honest Productions Logo"
@@ -101,7 +120,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-12 mt-2">
+            <div className={`flex flex-wrap justify-center gap-4 mb-12 mt-2 transition-opacity duration-1000 ${buttonsVisible ? 'opacity-100' : 'opacity-0'}`}>
               <Link
                 href="/contact"
                 className="px-8 py-3 text-sm font-medium transition-colors rounded-full bg-gradient-to-r from-[#B45AFF] to-[#FF6B6B] text-white hover:from-[#C76FFF] hover:to-[#FF8585] shadow-lg hover:shadow-xl hover:scale-105 transform duration-200"
@@ -144,7 +163,7 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black p-8 border border-gray-800">
               <div className="relative z-10">
                 <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00FFB3] to-[#FF6B6B]">
-                  About Honest Productions
+                  Honest Productions
                 </h2>
                 <p className="text-[#E6E6E6] max-w-3xl mb-6">
                   A creative powerhouse dedicated to transforming musical visions into compelling visual narratives. 
