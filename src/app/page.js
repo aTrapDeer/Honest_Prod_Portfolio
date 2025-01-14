@@ -49,22 +49,24 @@ export default function Home() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="https://dj57pv4qm04lm.cloudfront.net/bg.mp4" type="video/mp4" />
+            <source src="https://dj57pv4qm04lm.cloudfront.net/BG2.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-white">
           <div className="max-w-3xl mx-auto text-center animate-fade-up">
-            <h1 className="mb-12 text-5xl font-bold tracking-tight sm:text-7xl">
-              Honest
-              <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#00FFB3] via-[#B45AFF] to-[#FF6B6B]">
-                Productions
-              </span>
-            </h1>
-            
+            <div className="mb-8 relative w-full max-w-lg mx-auto">
+              <Image
+                src="/honestlogo.png"
+                alt="Honest Productions Logo"
+                width={600}
+                height={200}
+                priority
+                className="w-full h-auto"
+              />
+            </div>
 
-
-            <div className="flex flex-wrap justify-center gap-4 mb-24 mt-16">
+            <div className="flex flex-wrap justify-center gap-4 mb-12 mt-2">
               <Link
                 href="/contact"
                 className="px-8 py-3 text-sm font-medium transition-colors rounded-full bg-gradient-to-r from-[#B45AFF] to-[#FF6B6B] text-white hover:from-[#C76FFF] hover:to-[#FF8585] shadow-lg hover:shadow-xl hover:scale-105 transform duration-200"

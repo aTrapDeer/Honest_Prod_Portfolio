@@ -7,6 +7,20 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Honest Productions',
   description: 'Visionary music video production company',
+  icons: {
+    icon: [
+      {
+        url: '/H.ico',
+        sizes: 'any',
+      },
+      {
+        url: '/H.svg',
+        type: 'image/svg+xml',
+      }
+    ],
+    shortcut: '/H.ico',
+    apple: '/H.png',
+  },
 }
 
 export default function RootLayout({ children }) {

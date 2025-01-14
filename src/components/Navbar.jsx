@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu } from 'lucide-react';
 
@@ -21,8 +22,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
-              Honest
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/honestlogo.png"
+                alt="Honest Productions Logo"
+                width={160}
+                height={56}
+                className="h-14 w-auto"
+                priority
+              />
             </Link>
           </div>
 
