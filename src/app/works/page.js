@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import musicVideos from './musicvideos.json';
 
 const artists = [
   {
@@ -90,6 +91,7 @@ export default function Works() {
   const [selectedArtist, setSelectedArtist] = useState(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   const openArtistModal = (artist) => {
     setSelectedArtist(artist);
@@ -109,6 +111,10 @@ export default function Works() {
     setSelectedVideo(null);
   };
 
+  const playVideo = (index) => {
+    setCurrentVideoIndex(index);
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header Section */}
@@ -124,6 +130,120 @@ export default function Works() {
           <p className="text-gray-300 max-w-2xl mx-auto px-4">
             Explore our collection of groundbreaking music videos and visual experiences
           </p>
+        </div>
+      </div>
+
+      {/* Featured Playlist Section */}
+      <div className="max-w-7xl mx-auto px-4 -mt-20">
+        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black border border-gray-800 p-8">
+          <h2 className="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+            Featured Videos
+            <span className="ml-3 text-sm font-normal text-gray-400 bg-gray-800/50 px-3 py-1 rounded-full">
+              {musicVideos.videos.length} Videos
+            </span>
+          </h2>
+          
+          {/* Main Video */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="md:col-span-3">
+              <div className="relative rounded-xl overflow-hidden bg-gray-900/50 border border-gray-800/50">
+                <div className="relative pt-[56.25%]">
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${musicVideos.videos[currentVideoIndex].videoId}`}
+                    title={musicVideos.videos[currentVideoIndex].title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+            
+          {/* Horizontal Carousel with Arrows */}
+          <div className="relative">
+            <h4 className="text-lg font-semibold text-white mb-4 flex items-center justify-between">
+              <span>Next Up</span>
+              <span className="text-sm font-normal text-gray-400">
+                Video {currentVideoIndex + 1} of {musicVideos.videos.length}
+              </span>
+            </h4>
+            <div className="relative group">
+              {/* Left Arrow */}
+              <button 
+                onClick={() => {
+                  const container = document.getElementById('video-carousel');
+                  container.scrollBy({ left: -container.offsetWidth, behavior: 'smooth' });
+                }}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/80 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black"
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              {/* Right Arrow */}
+              <button 
+                onClick={() => {
+                  const container = document.getElementById('video-carousel');
+                  container.scrollBy({ left: container.offsetWidth, behavior: 'smooth' });
+                }}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/80 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black"
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Carousel Container */}
+              <div 
+                id="video-carousel"
+                className="overflow-hidden"
+              >
+                <div className="flex space-x-4 transition-transform duration-300 ease-out">
+                  {musicVideos.videos.map((video, index) => (
+                    <button
+                      key={video.videoId}
+                      onClick={() => playVideo(index)}
+                      className={`flex-shrink-0 w-64 group ${
+                        currentVideoIndex === index
+                          ? 'ring-2 ring-blue-500 rounded-lg'
+                          : ''
+                      }`}
+                    >
+                      <div className="relative aspect-video rounded-lg overflow-hidden">
+                        <Image
+                          src={video.thumbnail}
+                          alt={video.title}
+                          fill
+                          className="object-cover transform transition-transform duration-300 group-hover:scale-110"
+                        />
+                        {currentVideoIndex !== index && (
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform">
+                              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <div className="mt-2">
+                        <p className="text-sm font-medium text-white line-clamp-1 group-hover:text-blue-400 transition-colors">
+                          {video.title}
+                        </p>
+                        <p className="text-xs text-gray-400 mt-1">
+                          {video.artist}
+                        </p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
         </div>
       </div>
 
