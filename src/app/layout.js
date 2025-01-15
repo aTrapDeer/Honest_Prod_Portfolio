@@ -1,34 +1,21 @@
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
-
-const inter = Inter({ subsets: ['latin'] })
+import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'Honest Productions',
-  description: 'Visionary music video production company',
-  icons: {
-    icon: [
-      {
-        url: '/H.ico',
-        sizes: 'any',
-      },
-      {
-        url: '/H.svg',
-        type: 'image/svg+xml',
-      }
-    ],
-    shortcut: '/H.ico',
-    apple: '/H.png',
-  },
+  description: 'Professional Music Video Production Company',
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="bg-[#9AA8FF] font-agrandir min-h-screen flex flex-col">
         <Navbar />
-        {children}
+        <div className="flex-grow">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   )

@@ -137,7 +137,7 @@ export default function Works() {
         </div>
         <div className="relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400 mb-4">
-            Our Works
+            Music Videos
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto px-4">
             Explore our collection of groundbreaking music videos and visual experiences

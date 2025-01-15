@@ -2,20 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: 'Horizon';
+  src: url('/fonts/Horizon.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+  font-family: 'Agrandir';
+  src: url('/fonts/Agrandir.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --main-font-color: #FFDDDD;
+  --sub-font-color: #FFFFFF;
+  --background-color: #9AA8FF;
+  --accent-color: #35B5C2;
+}
+
+@layer base {
+  body {
+    @apply bg-[#9AA8FF];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Horizon', sans-serif !important;
+    color: #FFDDDD !important;
+  }
+
+  p, span, a, button {
+    font-family: 'Agrandir', sans-serif !important;
+    color: #FFFFFF;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom utility classes */
+.text-main {
+  color: #FFDDDD !important;
+  font-family: 'Horizon', sans-serif !important;
+}
+
+.text-sub {
+  color: #FFFFFF !important;
+  font-family: 'Agrandir', sans-serif !important;
+}
+
+.font-horizon {
+  font-family: 'Horizon', sans-serif !important;
+}
+
+.font-agrandir {
+  font-family: 'Agrandir', sans-serif !important;
 }
