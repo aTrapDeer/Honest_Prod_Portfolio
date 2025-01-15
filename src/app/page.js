@@ -120,7 +120,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      <div className="fixed inset-0 w-full h-full transition-opacity duration-300 bg-black z-0" style={{ opacity: btsOpacity }}>
+      <div className="fixed inset-0 w-full h-full transition-opacity duration-300 z-0" style={{ opacity: btsOpacity }}>
         <div className="relative w-full h-full">
           <video
             ref={btsVideoRef}
@@ -133,7 +133,7 @@ export default function Home() {
             <source src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4" type="video/mp4" />
           </video>
           <div 
-            className="absolute inset-0 bg-black transition-opacity duration-700" 
+            className="absolute inset-0 bg-gradient-to-b from-[#9AA8FF]/30 via-[#9AA8FF]/25 to-[#9AA8FF]/35 backdrop-blur-[2px] transition-opacity duration-700" 
             style={{ opacity: btsVideoOverlay }}
           />
         </div>
@@ -201,20 +201,28 @@ export default function Home() {
         {/* Content Sections */}
         <section ref={sectionsRef}>
           {/* About Section with Solid Background */}
-          <div className="min-h-screen flex items-center justify-center px-4">
-            <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out w-full max-w-7xl">
-              <div className="relative overflow-hidden rounded-2xl bg-[#9AA8FF] p-8">
-                <div className="relative z-10">
-                  <h2 className="text-3xl font-horizon text-[#FFDDDD] mb-6">
+          <div className="min-h-screen flex items-center justify-center">
+            <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out w-full">
+              <div className="relative w-full">
+                <div className="absolute inset-0">
+                  {/* Top fade from video overlay - adjusted to match video overlay */}
+                  <div className="absolute -top-96 left-0 right-0 h-96 bg-gradient-to-b from-transparent via-black/50 via-30% to-black" />
+                  {/* Solid section with slightly reduced opacity to help blending */}
+                  <div className="absolute inset-0 bg-black/95" />
+                  {/* Bottom fade to BTS section */}
+                  <div className="absolute -bottom-96 left-0 right-0 h-96 bg-gradient-to-t from-[#9AA8FF] to-black" />
+                </div>
+                <div className="relative z-10 max-w-[90vw] mx-auto py-24">
+                  <h2 className="text-4xl font-horizon text-[#FFDDDD] mb-6">
                     Honest Prod Co
                   </h2>
-                  <p className="text-white font-agrandir max-w-3xl mb-6">
+                  <p className="text-white font-agrandir max-w-3xl mb-6 text-lg">
                     A creative powerhouse dedicated to transforming musical visions into compelling visual narratives. 
                     We specialize in crafting high-end music videos that resonate with audiences and elevate artists&apos; brands.
                   </p>
                   <Link
                     href="/bts"
-                    className="inline-flex items-center px-6 py-2.5 text-sm font-medium bg-[#35B5C2] text-[#FFDDDD] rounded-full hover:bg-[#2a8f99] transition-colors duration-200"
+                    className="inline-flex items-center px-8 py-3 text-sm font-medium bg-[#35B5C2]/80 text-[#FFDDDD] rounded-full hover:bg-[#35B5C2] transition-all duration-300 backdrop-blur-sm"
                   >
                     <span>Behind The Scenes</span>
                     <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -240,32 +248,42 @@ export default function Home() {
               >
                 <source src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-black/70" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#9AA8FF]/30 via-[#9AA8FF]/25 to-[#9AA8FF]/35 backdrop-blur-[2px]" />
             </div>
 
             {/* Content */}
-            <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 space-y-32">
+            <div className="relative z-10 w-full mx-auto py-24 space-y-48">
               {/* Director Section */}
               <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
-                <div className="relative overflow-hidden rounded-2xl bg-[#9AA8FF] p-8">
-                  <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
-                    <div className="w-48 h-48 relative rounded-full overflow-hidden">
-                      <Image
-                        src="/Images/JackRottier/Image1.jpg"
-                        alt="Jack Rottier"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h2 className="text-3xl font-horizon text-[#FFDDDD] mb-4">
-                        Jack Rottier
-                      </h2>
-                      <p className="text-white font-agrandir max-w-2xl">
-                        Award-winning director known for pushing creative boundaries and delivering groundbreaking music videos. 
-                        With a keen eye for storytelling and visual innovation, Jack has collaborated with some of the industry&apos;s 
-                        most influential artists.
-                      </p>
+                <div className="relative w-full">
+                  <div className="absolute inset-0">
+                    {/* Top fade - simplified gradient */}
+                    <div className="absolute -top-96 left-0 right-0 h-96 bg-gradient-to-b from-transparent from-0% to-[#9AA8FF] to-100%" />
+                    {/* Solid section */}
+                    <div className="absolute inset-0 bg-[#9AA8FF]" />
+                    {/* Bottom fade - simplified gradient */}
+                    <div className="absolute -bottom-96 left-0 right-0 h-96 bg-gradient-to-t from-transparent from-0% to-[#9AA8FF] to-100%" />
+                  </div>
+                  <div className="relative z-10 max-w-[90vw] mx-auto px-8 py-24">
+                    <div className="flex flex-col md:flex-row gap-12 items-center">
+                      <div className="w-56 h-56 relative rounded-2xl overflow-hidden shadow-xl">
+                        <Image
+                          src="/Images/JackRottier/Image1.jpg"
+                          alt="Jack Rottier"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h2 className="text-4xl font-horizon text-[#FFDDDD] mb-6">
+                          Jack Rottier
+                        </h2>
+                        <p className="text-white font-agrandir max-w-2xl text-lg">
+                          Award-winning director known for pushing creative boundaries and delivering groundbreaking music videos. 
+                          With a keen eye for storytelling and visual innovation, Jack has collaborated with some of the industry&apos;s 
+                          most influential artists.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -273,14 +291,22 @@ export default function Home() {
 
               {/* Artists Section */}
               <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
-                <div className="relative overflow-hidden rounded-2xl bg-[#9AA8FF] p-8">
-                  <div className="relative z-10">
-                    <h2 className="text-3xl font-horizon text-[#FFDDDD] mb-8">
+                <div className="relative w-full">
+                  <div className="absolute inset-0">
+                    {/* Top fade - simplified gradient */}
+                    <div className="absolute -top-96 left-0 right-0 h-96 bg-gradient-to-b from-transparent from-0% to-[#9AA8FF] to-100%" />
+                    {/* Solid section */}
+                    <div className="absolute inset-0 bg-[#9AA8FF]" />
+                    {/* Bottom fade - simplified gradient */}
+                    <div className="absolute -bottom-96 left-0 right-0 h-96 bg-gradient-to-t from-transparent from-0% to-[#9AA8FF] to-100%" />
+                  </div>
+                  <div className="relative z-10 max-w-[90vw] mx-auto px-8 py-24">
+                    <h2 className="text-4xl font-horizon text-[#FFDDDD] mb-16">
                       Featured Artists
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <div className="aspect-square relative rounded-lg overflow-hidden group">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                      <div className="aspect-square relative rounded-xl overflow-hidden group shadow-xl z-20">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                         <Image
                           src="/Images/Works/Yeat.webp"
                           alt="Yeat"
@@ -288,8 +314,8 @@ export default function Home() {
                           className="object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
-                      <div className="aspect-square relative rounded-lg overflow-hidden group">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                      <div className="aspect-square relative rounded-xl overflow-hidden group shadow-xl z-20">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                         <Image
                           src="/Images/Works/JuicyJ.webp"
                           alt="Juicy J"
@@ -297,8 +323,8 @@ export default function Home() {
                           className="object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
-                      <div className="aspect-square relative rounded-lg overflow-hidden group">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                      <div className="aspect-square relative rounded-xl overflow-hidden group shadow-xl z-20">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                         <Image
                           src="/Images/Works/BLPKosher.jpeg"
                           alt="BLP Kosher"
@@ -306,8 +332,8 @@ export default function Home() {
                           className="object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
-                      <div className="aspect-square relative rounded-lg overflow-hidden group">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                      <div className="aspect-square relative rounded-xl overflow-hidden group shadow-xl z-20">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                         <Image
                           src="/Images/Works/BabyTron.webp"
                           alt="Baby Tron"
@@ -316,6 +342,38 @@ export default function Home() {
                         />
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* About Section */}
+              <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
+                <div className="relative w-full">
+                  <div className="absolute inset-0">
+                    {/* Top fade - simplified gradient */}
+                    <div className="absolute -top-96 left-0 right-0 h-96 bg-gradient-to-b from-transparent from-0% to-[#9AA8FF] to-100%" />
+                    {/* Solid section */}
+                    <div className="absolute inset-0 bg-[#9AA8FF]" />
+                    {/* Bottom fade - simplified gradient */}
+                    <div className="absolute -bottom-96 left-0 right-0 h-96 bg-gradient-to-t from-transparent from-0% to-[#9AA8FF] to-100%" />
+                  </div>
+                  <div className="relative z-10 max-w-[90vw] mx-auto px-8 py-24">
+                    <h2 className="text-4xl font-horizon text-[#FFDDDD] mb-6">
+                      Honest Prod Co
+                    </h2>
+                    <p className="text-white font-agrandir max-w-3xl mb-8 text-lg">
+                      A creative powerhouse dedicated to transforming musical visions into compelling visual narratives. 
+                      We specialize in crafting high-end music videos that resonate with audiences and elevate artists&apos; brands.
+                    </p>
+                    <Link
+                      href="/bts"
+                      className="inline-flex items-center px-8 py-3 text-sm font-medium bg-[#35B5C2]/60 text-[#FFDDDD] rounded-full hover:bg-[#35B5C2] transition-all duration-300"
+                    >
+                      <span>Behind The Scenes</span>
+                      <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                   </div>
                 </div>
               </div>
