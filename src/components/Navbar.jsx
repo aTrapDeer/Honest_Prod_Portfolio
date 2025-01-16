@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -20,15 +21,21 @@ export default function Navbar() {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#9AA8FF] shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#9AA8FF] ${
+        isScrolled ? 'shadow-lg' : ''
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-[#FFDDDD] font-horizon text-xl">
-              Honest Prod Co
+            <Link href="/" className="relative w-32 h-8">
+              <Image
+                src="/Hprint.svg"
+                alt="Honest Prod Co Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </Link>
           </div>
           <div className="hidden md:block">

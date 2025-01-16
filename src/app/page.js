@@ -380,65 +380,7 @@ export default function Home() {
 
               {/* Social Media Section */}
               <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
-
-                {/* Press Section */}
-                <div className="mt-16 border-t border-[#35B5C2]/30">
-                  <div className="py-6">
-                    <div className="max-w-4xl mx-auto">
-                      <p className="text-sm text-sub text-center mb-4">Featured In</p>
-                      <div className="flex flex-wrap justify-center items-center gap-6 px-4">
-                        <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                          <Image
-                            src="/Images/press/djakademiks.jpeg"
-                            alt="DJ Akademiks"
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                        <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                          <Image
-                            src="/Images/press/ourgeneration.jpg"
-                            alt="Our Generation Music"
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                        <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                          <Image
-                            src="/Images/press/source.jpg"
-                            alt="The Source"
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                        <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                          <Image
-                            src="/Images/press/raptv.jpg"
-                            alt="Rap TV"
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                        <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                          <Image
-                            src="/Images/press/pitchfork.jpg"
-                            alt="Pitchfork"
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                        <div className="relative h-6 w-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-                          <Image
-                            src="/Images/press/broadwayworld.png"
-                            alt="Broadway World"
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {/* Remove Featured In section */}
               </div>
             </div>
           </div>

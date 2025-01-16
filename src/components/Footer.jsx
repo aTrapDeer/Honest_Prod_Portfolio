@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="relative z-20 bg-[#9AA8FF] py-8 mt-auto">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col items-center justify-center space-y-4">
+        <div className="flex flex-col items-center justify-center space-y-8">
           {/* Social Icons */}
           <div className="flex space-x-6">
             <a
