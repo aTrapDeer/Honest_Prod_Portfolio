@@ -53,7 +53,7 @@ export default function Home() {
     const logoTimer = setTimeout(() => {
       setLogoOpacity(0);
       setVideoOverlayOpacity(0.2);
-    }, 6000);
+    }, 5000);
 
     return () => clearTimeout(logoTimer);
   }, []);
