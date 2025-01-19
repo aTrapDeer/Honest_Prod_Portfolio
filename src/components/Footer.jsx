@@ -18,7 +18,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://youtube.com/@HonestProdCo"
+              href="https://www.youtube.com/playlist?list=PLBHTqybSbSXyg4fTrVQrd7LGsLSAat-Kz"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-[#FFDDDD] transition-colors"
