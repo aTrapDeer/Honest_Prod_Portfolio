@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Honest Productions',
+  title: 'Honest Prod Co',
   description: 'Professional Video Production Company',
   icons: {
     icon: '/H.ico',
@@ -14,10 +14,10 @@ export const metadata = {
     apple: '/H.png',
   },
   openGraph: {
-    title: 'Honest Productions',
+    title: 'Honest Prod Co',
     description: 'Professional Video Production Company',
-    url: 'https://honestproductions.com', // Replace with your actual URL
-    siteName: 'Honest Productions',
+    url: 'https://honestprod.co', // Replace with your actual URL
+    siteName: 'Honest Prod Co',
     images: [
       {
         url: '/H.png', // This will be the image shown when shared

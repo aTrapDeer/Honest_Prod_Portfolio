@@ -43,28 +43,35 @@ export default function Home() {
   const [heroOpacity, setHeroOpacity] = useState(1);
   const [btsOpacity, setBtsOpacity] = useState(0);
   const [btsVideoOverlay, setBtsVideoOverlay] = useState(1);
+  const [logoOpacity, setLogoOpacity] = useState(1);
+  const [videoOverlayOpacity, setVideoOverlayOpacity] = useState(0.5);
   const sectionsRef = useRef(null);
   const heroVideoRef = useRef(null);
   const btsVideoRef = useRef(null);
+
+  useEffect(() => {
+    const logoTimer = setTimeout(() => {
+      setLogoOpacity(0);
+      setVideoOverlayOpacity(0.2);
+    }, 6000);
+
+    return () => clearTimeout(logoTimer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // Hero video stays visible longer
       const heroFade = Math.max(0, 1 - (scrollPosition / (windowHeight * 1.2)));
       setHeroOpacity(heroFade);
 
-      // BTS video and its overlay
-      const fadeStartPoint = windowHeight * 1.1; // Start after Honest Prod Co section
-      const fadeDistance = windowHeight * 0.6; // Fade over 60% of screen height
+      const fadeStartPoint = windowHeight * 1.1;
+      const fadeDistance = windowHeight * 0.6;
       
-      // BTS video appears
       const btsFade = Math.min(1, Math.max(0, (scrollPosition - fadeStartPoint) / (fadeDistance * 0.5)));
       setBtsOpacity(btsFade);
       
-      // Black overlay on BTS video fades out more gradually
       const overlayFade = Math.max(0, 1 - ((scrollPosition - (fadeStartPoint + fadeDistance * 0.2)) / fadeDistance));
       setBtsVideoOverlay(overlayFade);
     };
@@ -113,11 +120,14 @@ export default function Home() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover xs:object-[center_20%] sm:object-[center_30%] md:object-center lg:object-center"
         >
           <source src="https://dj57pv4qm04lm.cloudfront.net/BG2.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/50" />
+        <div 
+          className="absolute inset-0 bg-black transition-opacity duration-1000" 
+          style={{ opacity: videoOverlayOpacity }}
+        />
       </div>
 
       <div className="fixed inset-0 w-full h-full transition-opacity duration-300 z-0" style={{ opacity: btsOpacity }}>
@@ -128,7 +138,12 @@ export default function Home() {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full 
+              object-cover 
+              xs:object-[center_20%] 
+              sm:object-[center_30%] 
+              md:object-center 
+              lg:object-center"
           >
             <source src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4" type="video/mp4" />
           </video>
@@ -146,8 +161,8 @@ export default function Home() {
           <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
             <div className="max-w-3xl mx-auto text-center animate-fade-up">
               <div 
-                className="mb-8 relative w-full max-w-lg mx-auto transition-opacity duration-300"
-                style={{ opacity: heroOpacity }}
+                className="mb-8 relative w-full max-w-lg mx-auto transition-opacity duration-1000"
+                style={{ opacity: logoOpacity }}
               >
                 <Image
                   src="/honestlogo.png"
@@ -158,17 +173,15 @@ export default function Home() {
                   className="w-full h-auto"
                 />
               </div>
-
-
             </div>
 
             <button 
               onClick={scrollToSections}
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce transition-transform hover:scale-110 focus:outline-none"
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce transition-transform hover:scale-110 focus:outline-none w-full max-w-[40px] mx-auto"
               style={{ opacity: heroOpacity }}
             >
               <svg
-                className="w-10 h-10"  
+                className="w-10 h-10 mx-auto text-[#FFDDDD]"  
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -228,7 +241,12 @@ export default function Home() {
                 muted
                 loop
                 playsInline
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full 
+                  object-cover 
+                  xs:object-[center_20%] 
+                  sm:object-[center_30%] 
+                  md:object-center 
+                  lg:object-center"
               >
                 <source src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4" type="video/mp4" />
               </video>
@@ -350,10 +368,10 @@ export default function Home() {
                       We specialize in crafting high-end music videos that resonate with audiences and elevate artists&apos; brands.
                     </p>
                     <Link
-                      href="/bts"
+                      href="/works"
                       className="inline-flex items-center px-8 py-3 text-sm font-medium bg-[#35B5C2]/60 text-[#FFDDDD] rounded-full hover:bg-[#35B5C2] transition-all duration-300"
                     >
-                      <span>Behind The Scenes</span>
+                      <span>Our Work</span>
                       <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
