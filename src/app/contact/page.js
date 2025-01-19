@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -19,41 +18,30 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus({ submitted: false, submitting: true, error: null });
+    setStatus({ submitting: true });
 
     try {
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // You'll get this from EmailJS
-        'YOUR_TEMPLATE_ID', // You'll get this from EmailJS
-        {
-          from_name: formData.name,
-          reply_to: formData.email,
-          project_type: formData.projectType,
-          message: formData.message,
+      const response = await fetch("https://formspree.io/f/xeoobpby", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        'YOUR_PUBLIC_KEY' // You'll get this from EmailJS
-      );
+        body: JSON.stringify(formData),
+      });
 
-      setStatus({
-        submitted: true,
-        submitting: false,
-        error: null
-      });
-      
-      // Clear form
-      setFormData({
-        name: "",
-        email: "",
-        projectType: "",
-        message: "",
-      });
-      
+      if (response.ok) {
+        setStatus({ submitted: true, submitting: false });
+        setFormData({
+          name: "",
+          email: "",
+          projectType: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Failed to send message");
+      }
     } catch (error) {
-      setStatus({
-        submitted: false,
-        submitting: false,
-        error: error.message
-      });
+      setStatus({ error: true, submitting: false });
     }
   };
 
@@ -158,16 +146,32 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                {/* Add status messages */}
+                {/* Status Messages - Add these just before the submit button */}
                 {status.submitted && (
-                  <div className="mb-4 p-4 bg-green-500/20 text-white rounded-lg">
-                    Message sent successfully!
+                  <div className="mb-6 p-4 bg-green-500/20 backdrop-blur-sm border border-green-500/50 text-[#FFDDDD] rounded-lg text-center animate-fade-in">
+                    <svg className="w-6 h-6 mx-auto mb-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <p className="font-medium">Message sent successfully!</p>
+                    <p className="text-sm opacity-80 mt-1">We'll get back to you soon.</p>
                   </div>
                 )}
                 
                 {status.error && (
-                  <div className="mb-4 p-4 bg-red-500/20 text-white rounded-lg">
-                    {status.error}
+                  <div className="mb-6 p-4 bg-red-500/20 backdrop-blur-sm border border-red-500/50 text-[#FFDDDD] rounded-lg text-center animate-fade-in">
+                    <svg className="w-6 h-6 mx-auto mb-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p className="font-medium">Failed to send message</p>
+                    <p className="text-sm opacity-80 mt-1">Please try again or email us directly.</p>
+                  </div>
+                )}
+
+                {/* Loading State */}
+                {status.submitting && (
+                  <div className="mb-6 p-4 bg-blue-500/20 backdrop-blur-sm border border-blue-500/50 text-[#FFDDDD] rounded-lg text-center animate-fade-in">
+                    <div className="animate-spin w-6 h-6 border-2 border-[#FFDDDD] border-t-transparent rounded-full mx-auto mb-2"></div>
+                    <p className="font-medium">Sending message...</p>
                   </div>
                 )}
 
