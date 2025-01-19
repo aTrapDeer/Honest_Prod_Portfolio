@@ -21,16 +21,14 @@ export default function Navbar() {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#9AA8FF] ${
-        isScrolled ? 'shadow-lg' : ''
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="relative w-32 h-8">
               <Image
-                src="/Hprint.svg"
+                src="/Hv.png"
                 alt="Honest Prod Co Logo"
                 fill
                 className="object-contain"
@@ -42,30 +40,21 @@ export default function Navbar() {
             <div className="ml-10 flex items-baseline space-x-4">
               <Link
                 href="/works"
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
+                className={`px-3 py-2 rounded-md text-sm font-horizon ${
                   pathname === '/works'
                     ? 'text-[#FFDDDD] bg-[#35B5C2]'
-                    : 'text-white hover:text-[#FFDDDD] hover:bg-[#35B5C2] transition-colors duration-200'
+                    : 'text-white hover:text-[#FFDDDD] hover:bg-[#2A8F99] transition-colors duration-200'
                 }`}
               >
-                Works
+                Projects
               </Link>
-              <Link
-                href="/bts"
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  pathname === '/bts'
-                    ? 'text-[#FFDDDD] bg-[#35B5C2]'
-                    : 'text-white hover:text-[#FFDDDD] hover:bg-[#35B5C2] transition-colors duration-200'
-                }`}
-              >
-                BTS
-              </Link>
+              
               <Link
                 href="/contact"
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
+                className={`px-3 py-2 rounded-md text-sm font-horizon ${
                   pathname === '/contact'
                     ? 'text-[#FFDDDD] bg-[#35B5C2]'
-                    : 'text-white hover:text-[#FFDDDD] hover:bg-[#35B5C2] transition-colors duration-200'
+                    : 'text-white hover:text-[#FFDDDD] hover:bg-[#2A8F99] transition-colors duration-200'
                 }`}
               >
                 Contact
@@ -121,27 +110,18 @@ export default function Navbar() {
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#9AA8FF]">
           <Link
             href="/works"
-            className={`block px-3 py-2 rounded-md text-sm font-medium ${
+            className={`block px-3 py-2 rounded-md text-sm font-horizon ${
               pathname === '/works'
                 ? 'text-[#FFDDDD] bg-[#35B5C2]'
                 : 'text-white hover:text-[#FFDDDD] hover:bg-[#35B5C2] transition-colors duration-200'
             }`}
           >
-            Works
+            Projects
           </Link>
-          <Link
-            href="/bts"
-            className={`block px-3 py-2 rounded-md text-sm font-medium ${
-              pathname === '/bts'
-                ? 'text-[#FFDDDD] bg-[#35B5C2]'
-                : 'text-white hover:text-[#FFDDDD] hover:bg-[#35B5C2] transition-colors duration-200'
-            }`}
-          >
-            BTS
-          </Link>
+
           <Link
             href="/contact"
-            className={`block px-3 py-2 rounded-md text-sm font-medium ${
+            className={`block px-3 py-2 rounded-md text-sm font-horizon ${
               pathname === '/contact'
                 ? 'text-[#FFDDDD] bg-[#35B5C2]'
                 : 'text-white hover:text-[#FFDDDD] hover:bg-[#35B5C2] transition-colors duration-200'

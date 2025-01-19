@@ -159,23 +159,7 @@ export default function Home() {
                 />
               </div>
 
-              <div 
-                className="flex flex-wrap justify-center gap-4 mb-12 mt-2 transition-opacity duration-300"
-                style={{ opacity: heroOpacity }}
-              >
-                <Link
-                  href="/contact"
-                  className="px-8 py-3 text-sm font-medium rounded-full bg-[#35B5C2] text-[#FFDDDD] hover:bg-[#2a8f99] transition-colors duration-200"
-                >
-                  Contact
-                </Link>
-                <Link
-                  href="/works"
-                  className="px-8 py-3 text-sm font-medium rounded-full bg-[#35B5C2] text-[#FFDDDD] hover:bg-[#2a8f99] transition-colors duration-200"
-                >
-                  Music Videos
-                </Link>
-              </div>
+
             </div>
 
             <button 
@@ -184,7 +168,7 @@ export default function Home() {
               style={{ opacity: heroOpacity }}
             >
               <svg
-                className="w-8 h-8"
+                className="w-10 h-10"  
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
