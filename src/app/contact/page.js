@@ -153,7 +153,7 @@ export default function Contact() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                     <p className="font-medium">Message sent successfully!</p>
-                    <p className="text-sm opacity-80 mt-1">We'll get back to you soon.</p>
+                    <p className="text-sm opacity-80 mt-1">We&apos;ll get back to you soon.</p>
                   </div>
                 )}
                 
