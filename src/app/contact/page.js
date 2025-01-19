@@ -83,8 +83,9 @@ export default function Contact() {
             <div className="space-y-8 animate-fade-up">
               <div className="p-6 rounded-2xl bg-[#9AA8FF]/90 backdrop-blur-md shadow-lg">
                 {/* <h3 className="mb-4 text-xl font-semibold text-white">Location</h3> */}
-                <h3 className="text-white/90 text-lg">Based in Los Angeles, CA</h3>
-                <h3 className="text-white/90 text-sm">Available internationally</h3>
+                <h3 className="text-[#FFDDDD] text-lg font-horizon">Based in Los Angeles, CA</h3>
+                <h3 className="text-[#FFDDDD] text-sm font-horizon">Available internationally</h3>
+                <p className="text-[#FFDDDD] text-sm font-horizon mt-4">Jack@honestprod.co</p> 
               </div>
 
 
