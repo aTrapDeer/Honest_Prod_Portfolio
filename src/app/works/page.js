@@ -57,31 +57,31 @@ const artists = [
       { title: 'The Cup', videoId: 'Ssj5ZBuhwIo' },
     ]
   },
-  {
-    name: 'RONDODASOSA',
-    image: '/Images/Works/Rondodasosa.jpeg',
-    description: "Rising star with a unique vision and sound",
-    videos: [
-      { title: 'SRT', videoId: 'nqIU_ipnFZU' }
-    ]
-  },
-  {
-    name: 'Rich Amiri',
-    image: '/Images/Works/RichAmiri.jpeg',
-    description: "Rising star with a unique vision and sound",
-    videos: [
-      { title: 'Bounty', videoId: 'JHPnZWRfdqU' },
-    ]
-  },
-  {
-    name: 'Keshore',
-    image: '/Images/Works/Keshore.jpg',
-    description: "Rising star with a unique vision and sound",
-    videos: [
-      { title: 'Orange Juice', videoId: 'TR-cP_a2ic0' },
-      { title: 'Sweet Coochie', videoId: 'q1jCzsp2Zv0' },
-    ]
-  }
+{
+  name: 'RONDODASOSA',
+  image: '/Images/Works/Rondodasosa.jpeg',
+  description: "Rising star with a unique vision and sound",
+  videos: [
+    { title: 'SRT', videoId: 'nqIU_ipnFZU' }
+  ]
+},
+{
+  name: 'Rich Amiri',
+  image: '/Images/Works/RichAmiri.jpeg',
+  description: "Rising star with a unique vision and sound",
+  videos: [
+    { title: 'Bounty', videoId: 'JHPnZWRfdqU' },
+  ]
+},
+{
+  name: 'Keshore',
+  image: '/Images/Works/Keshore.jpg',
+  description: "Rising star with a unique vision and sound",
+  videos: [
+    { title: 'Orange Juice', videoId: 'TR-cP_a2ic0' },
+    { title: 'Sweet Coochie', videoId: 'q1jCzsp2Zv0' },
+  ]
+}
 ];
 
 export default function Works() {
@@ -98,12 +98,13 @@ export default function Works() {
     setSelectedVideo(null);
   };
 
-  // Combine all videos into a single array
+  // Update the allVideos mapping to use different thumbnail qualities
   const allVideos = artists.flatMap(artist => 
     artist.videos.map(video => ({
       ...video,
-      artist: artist.name,
-      thumbnail: `https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`
+      artist: video.videoId === 'NEFEwfPcXRA' ? 'Yeat x Summrs' : artist.name,
+      thumbnail: `https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`,
+      hoverThumbnail: `https://img.youtube.com/vi/${video.videoId}/sddefault.jpg`, // Different thumbnail for hover
     }))
   );
 
@@ -126,9 +127,8 @@ export default function Works() {
     // Remaining videos
     ...allVideos.filter(v => !['NEFEwfPcXRA', 'Ssj5ZBuhwIo', 'bd5l5NtzoWc', 'qxJf8Ulmi-Y'].includes(v.videoId)).slice(12)
   ].filter(Boolean);
-
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white pt-10"> {/* Added pt-20 for navbar space */}
       {/* Header */}
       <div className="py-8 px-4 max-w-[90vw] mx-auto">
         <h1 className="text-4xl font-horizon text-[#FFDDDD]">Music Videos</h1>
@@ -149,22 +149,24 @@ export default function Works() {
                   onClick={() => openVideoModal(groupVideos[0])}
                   className="relative aspect-video w-full mb-4 cursor-pointer group overflow-hidden"
                 >
-                  <Image
-                    src={groupVideos[0].thumbnail}
-                    alt={groupVideos[0].title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                  <div className="absolute bottom-0 left-0 p-6">
-                    <h3 className="text-2xl font-bold text-white mb-2">{groupVideos[0].title}</h3>
-                    <p className="text-[#FFDDDD]">{groupVideos[0].artist}</p>
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={groupVideos[0].thumbnail}
+                      alt={groupVideos[0].title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+                    <div className="absolute bottom-0 left-0 p-6">
+                      <h3 className="text-2xl font-bold text-white mb-2">{groupVideos[0].title}</h3>
+                      <p className="text-[#FFDDDD]">{groupVideos[0].artist}</p>
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -178,31 +180,33 @@ export default function Works() {
                     onClick={() => openVideoModal(video)}
                     className="relative aspect-video cursor-pointer group overflow-hidden"
                   >
-                    <Image
-                      src={video.thumbnail}
-                      alt={video.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                    <div className="absolute bottom-0 left-0 p-4">
-                      <h3 className="text-sm font-bold text-white mb-1">{video.title}</h3>
-                      <p className="text-xs text-[#FFDDDD]">{video.artist}</p>
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={video.thumbnail}
+                        alt={video.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+                      <div className="absolute bottom-0 left-0 p-4">
+                        <h3 className="text-sm font-bold text-white mb-1">{video.title}</h3>
+                        <p className="text-xs text-[#FFDDDD]">{video.artist}</p>
+                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
+              ))}
             </div>
+          </div>
           );
         })}
-      </div>
+        </div>
 
       {/* Video Modal */}
       {isVideoModalOpen && selectedVideo && (

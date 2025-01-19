@@ -218,20 +218,20 @@ export default function Home() {
                     We specialize in crafting high-end music videos that resonate with audiences and elevate artists&apos; brands.
                   </p>
                   <Link
-                    href="/bts"
-                    className="inline-flex items-center px-8 py-3 text-sm font-medium bg-[#35B5C2]/80 text-[#FFDDDD] rounded-full hover:bg-[#35B5C2] transition-all duration-300 backdrop-blur-sm"
-                  >
-                    <span>Behind The Scenes</span>
-                    <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
+                      href="/works"
+                      className="inline-flex items-center px-8 py-3 text-sm font-medium bg-[#35B5C2]/60 text-[#FFDDDD] rounded-full hover:bg-[#35B5C2] transition-all duration-300"
+                    >
+                      <span>Our Work</span>
+                      <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Rest of the sections with BTS video background */}
+          {/* Rest of the sections */}
           <div className="relative">
             {/* BTS Video Background */}
             <div className="fixed inset-0 w-full h-full transition-opacity duration-300" style={{ opacity: btsOpacity }}>
@@ -254,17 +254,17 @@ export default function Home() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 w-full mx-auto py-24 space-y-48">
+            <div className="relative z-10 w-full mx-auto">
               {/* Director Section */}
-              <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
+              <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out py-24">
                 <div className="relative w-full">
                   <div className="absolute inset-0">
-                    {/* Top fade - simplified gradient */}
+                    {/* Top fade */}
                     <div className="absolute -top-96 left-0 right-0 h-96 bg-gradient-to-b from-transparent from-0% to-[#9AA8FF] to-100%" />
                     {/* Solid section */}
                     <div className="absolute inset-0 bg-[#9AA8FF]" />
-                    {/* Bottom fade - simplified gradient */}
-                    <div className="absolute -bottom-96 left-0 right-0 h-96 bg-gradient-to-t from-transparent from-0% to-[#9AA8FF] to-100%" />
+                    {/* Smooth transition to purple */}
+                    <div className="absolute -bottom-48 left-0 right-0 h-48 bg-[#9AA8FF]" />
                   </div>
                   <div className="relative z-10 max-w-[90vw] mx-auto px-8 py-24">
                     <div className="flex flex-col md:flex-row gap-12 items-center">
@@ -291,98 +291,20 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Artists Section */}
+              {/* About Section - Modified to be the last section */}
               <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
                 <div className="relative w-full">
                   <div className="absolute inset-0">
-                    {/* Top fade - simplified gradient */}
+                    {/* Top fade */}
                     <div className="absolute -top-96 left-0 right-0 h-96 bg-gradient-to-b from-transparent from-0% to-[#9AA8FF] to-100%" />
                     {/* Solid section */}
                     <div className="absolute inset-0 bg-[#9AA8FF]" />
-                    {/* Bottom fade - simplified gradient */}
-                    <div className="absolute -bottom-96 left-0 right-0 h-96 bg-gradient-to-t from-transparent from-0% to-[#9AA8FF] to-100%" />
+                    {/* Bottom fade - adjusted to connect with footer */}
+                    <div className="absolute bottom-0 left-0 right-0 h-30 bg-gradient-to-b from-[#9AA8FF] via-[#9AA8FF] to-[#35B5C2]" />
                   </div>
-                  <div className="relative z-10 max-w-[90vw] mx-auto px-8 py-24">
-                    <h2 className="text-4xl font-horizon text-[#FFDDDD] mb-16">
-                      Featured Artists
-                    </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                      <div className="aspect-square relative rounded-xl overflow-hidden group shadow-xl z-20">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                        <Image
-                          src="/Images/Works/Yeat.webp"
-                          alt="Yeat"
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                      </div>
-                      <div className="aspect-square relative rounded-xl overflow-hidden group shadow-xl z-20">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                        <Image
-                          src="/Images/Works/JuicyJ.webp"
-                          alt="Juicy J"
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                      </div>
-                      <div className="aspect-square relative rounded-xl overflow-hidden group shadow-xl z-20">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                        <Image
-                          src="/Images/Works/BLPKosher.jpeg"
-                          alt="BLP Kosher"
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                      </div>
-                      <div className="aspect-square relative rounded-xl overflow-hidden group shadow-xl z-20">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                        <Image
-                          src="/Images/Works/BabyTron.webp"
-                          alt="Baby Tron"
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                      </div>
-                    </div>
-                  </div>
+                  {/* Add a spacer div to ensure content reaches footer */}
+                  <div className="h-12"></div>
                 </div>
-              </div>
-
-              {/* About Section */}
-              <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
-                <div className="relative w-full">
-                  <div className="absolute inset-0">
-                    {/* Top fade - simplified gradient */}
-                    <div className="absolute -top-96 left-0 right-0 h-96 bg-gradient-to-b from-transparent from-0% to-[#9AA8FF] to-100%" />
-                    {/* Solid section */}
-                    <div className="absolute inset-0 bg-[#9AA8FF]" />
-                    {/* Bottom fade - simplified gradient */}
-                    <div className="absolute -bottom-96 left-0 right-0 h-96 bg-gradient-to-t from-transparent from-0% to-[#9AA8FF] to-100%" />
-                  </div>
-                  <div className="relative z-10 max-w-[90vw] mx-auto px-8 py-24">
-                    <h2 className="text-4xl font-horizon text-[#FFDDDD] mb-6">
-                      Honest Prod Co
-                    </h2>
-                    <p className="text-white font-agrandir max-w-3xl mb-8 text-lg">
-                      A creative powerhouse dedicated to transforming musical visions into compelling visual narratives. 
-                      We specialize in crafting high-end music videos that resonate with audiences and elevate artists&apos; brands.
-                    </p>
-                    <Link
-                      href="/works"
-                      className="inline-flex items-center px-8 py-3 text-sm font-medium bg-[#35B5C2]/60 text-[#FFDDDD] rounded-full hover:bg-[#35B5C2] transition-all duration-300"
-                    >
-                      <span>Our Work</span>
-                      <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Social Media Section */}
-              <div className="animate-on-scroll opacity-0 transition-opacity duration-1000 ease-out">
-                {/* Remove Featured In section */}
               </div>
             </div>
           </div>

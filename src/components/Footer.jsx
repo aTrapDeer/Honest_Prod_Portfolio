@@ -2,12 +2,11 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="relative z-20 bg-[#35B5C2] py-8 mt-auto">
+    <footer className="relative z-20 bg-[#35B5C2] py-8 w-full bottom-0">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col items-center justify-center space-y-8">
           {/* Social Icons */}
           <div className="flex space-x-6">
-
             <a
               href="https://instagram.com/honestprodco"
               target="_blank"
