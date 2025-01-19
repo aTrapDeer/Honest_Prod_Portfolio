@@ -281,9 +281,7 @@ export default function Home() {
                           Jack Rottier
                         </h2>
                         <p className="text-white font-agrandir max-w-2xl text-lg">
-                          Award-winning director known for pushing creative boundaries and delivering groundbreaking music videos. 
-                          With a keen eye for storytelling and visual innovation, Jack has collaborated with some of the industry&apos;s 
-                          most influential artists.
+                          Award-winning director and founder of Honest Prod Co
                         </p>
                       </div>
                     </div>
