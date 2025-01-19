@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex space-x-6">
             <a
-              href="https://instagram.com/honestprodco"
+              href="https://instagram.com/jackrottier"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-[#FFDDDD] transition-colors"
