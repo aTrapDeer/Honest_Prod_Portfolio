@@ -300,7 +300,7 @@ export default function Home() {
                     {/* Solid section */}
                     <div className="absolute inset-0 bg-[#9AA8FF]" />
                     {/* Bottom fade - adjusted to connect with footer */}
-                    <div className="absolute bottom-0 left-0 right-0 h-30 bg-gradient-to-b from-[#9AA8FF] via-[#9AA8FF] to-[#35B5C2]" />
+                    <div className="absolute bottom-0 left-0 right-0 h-30 bg-gradient-to-b from-[#9AA8FF] via-[#9AA8FF] to-[#9AA8FF]" />
                   </div>
                   {/* Add a spacer div to ensure content reaches footer */}
                   <div className="h-12"></div>

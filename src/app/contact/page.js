@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -9,11 +10,51 @@ export default function Contact() {
     projectType: "",
     message: "",
   });
+  
+  const [status, setStatus] = useState({
+    submitted: false,
+    submitting: false,
+    error: null
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Backend integration will go here
-    console.log(formData);
+    setStatus({ submitted: false, submitting: true, error: null });
+
+    try {
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // You'll get this from EmailJS
+        'YOUR_TEMPLATE_ID', // You'll get this from EmailJS
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          project_type: formData.projectType,
+          message: formData.message,
+        },
+        'YOUR_PUBLIC_KEY' // You'll get this from EmailJS
+      );
+
+      setStatus({
+        submitted: true,
+        submitting: false,
+        error: null
+      });
+      
+      // Clear form
+      setFormData({
+        name: "",
+        email: "",
+        projectType: "",
+        message: "",
+      });
+      
+    } catch (error) {
+      setStatus({
+        submitted: false,
+        submitting: false,
+        error: error.message
+      });
+    }
   };
 
   return (
@@ -29,7 +70,7 @@ export default function Contact() {
         >
           <source src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/80" />
+        <div className="absolute inset-0 bg-black/55" />
       </div>
 
       {/* Content */}
@@ -41,9 +82,9 @@ export default function Contact() {
             {/* Contact Information */}
             <div className="space-y-8 animate-fade-up">
               <div className="p-6 rounded-2xl bg-[#9AA8FF]/90 backdrop-blur-md shadow-lg">
-                <h3 className="mb-4 text-xl font-semibold text-white">Location</h3>
-                <p className="text-white/90">Based in Los Angeles, CA</p>
-                <p className="text-white/90">Available for worldwide projects</p>
+                {/* <h3 className="mb-4 text-xl font-semibold text-white">Location</h3> */}
+                <h3 className="text-white/90 text-lg">Based in Los Angeles, CA</h3>
+                <h3 className="text-white/90 text-sm">Available internationally</h3>
               </div>
 
               <div className="p-6 rounded-2xl bg-[#9AA8FF]/90 backdrop-blur-md shadow-lg">
@@ -123,11 +164,25 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
+                {/* Add status messages */}
+                {status.submitted && (
+                  <div className="mb-4 p-4 bg-green-500/20 text-white rounded-lg">
+                    Message sent successfully!
+                  </div>
+                )}
+                
+                {status.error && (
+                  <div className="mb-4 p-4 bg-red-500/20 text-white rounded-lg">
+                    {status.error}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 text-sm font-medium text-white transition-all rounded-full bg-gradient-to-r from-[#B45AFF] to-[#FF6B6B] hover:from-[#C76FFF] hover:to-[#FF8585] shadow-lg hover:shadow-xl hover:scale-105 transform duration-200 focus:outline-none focus:ring-2 focus:ring-[#B45AFF] focus:ring-offset-2 focus:ring-offset-black"
+                  disabled={status.submitting}
+                  className="w-full px-8 py-4 text-sm font-medium text-white transition-all rounded-full bg-gradient-to-r from-[#B45AFF] to-[#FF6B6B] hover:from-[#C76FFF] hover:to-[#FF8585] shadow-lg hover:shadow-xl hover:scale-105 transform duration-200 focus:outline-none focus:ring-2 focus:ring-[#B45AFF] focus:ring-offset-2 focus:ring-offset-black disabled:opacity-50"
                 >
-                  Send Message
+                  {status.submitting ? 'Sending...' : 'Send Message'}
                 </button>
               </div>
             </form>

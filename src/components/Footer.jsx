@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="relative z-20 bg-[#35B5C2] py-8 w-full bottom-0">
+    <footer className="relative z-20 bg-[#9AA8FF] py-8 w-full bottom-0">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col items-center justify-center space-y-8">
           {/* Social Icons */}
