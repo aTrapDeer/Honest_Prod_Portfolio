@@ -147,16 +147,16 @@ export default function Works() {
               {groupVideos[0] && (
                 <div 
                   onClick={() => openVideoModal(groupVideos[0])}
-                  className="relative aspect-video w-full mb-4 cursor-pointer group overflow-hidden"
+                  className="relative aspect-video w-full mb-4 cursor-pointer group overflow-hidden rounded-2xl"
                 >
                   <div className="relative w-full h-full">
                     <Image
                       src={groupVideos[0].thumbnail}
                       alt={groupVideos[0].title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
                     />
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors rounded-2xl" />
                     <div className="absolute bottom-0 left-0 p-6">
                       <h3 className="text-2xl font-bold text-white mb-2">{groupVideos[0].title}</h3>
                       <p className="text-[#FFDDDD]">{groupVideos[0].artist}</p>
@@ -178,16 +178,16 @@ export default function Works() {
                   <div
                     key={video.videoId}
                     onClick={() => openVideoModal(video)}
-                    className="relative aspect-video cursor-pointer group overflow-hidden"
+                    className="relative aspect-video cursor-pointer group overflow-hidden rounded-2xl"
                   >
                     <div className="relative w-full h-full">
                       <Image
                         src={video.thumbnail}
                         alt={video.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
                       />
-                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+                      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors rounded-2xl" />
                       <div className="absolute bottom-0 left-0 p-4">
                         <h3 className="text-sm font-bold text-white mb-1">{video.title}</h3>
                         <p className="text-xs text-[#FFDDDD]">{video.artist}</p>
@@ -227,9 +227,9 @@ export default function Works() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <div className="relative pt-[56.25%] rounded-xl overflow-hidden">
+            <div className="relative pt-[56.25%] rounded-2xl overflow-hidden">
               <iframe
-                className="absolute inset-0 w-full h-full"
+                className="absolute inset-0 w-full h-full rounded-2xl"
                 src={`https://www.youtube.com/embed/${selectedVideo.videoId}`}
                 title={selectedVideo.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

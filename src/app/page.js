@@ -120,12 +120,12 @@ export default function Home() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover xs:object-[center_20%] sm:object-[center_30%] md:object-center lg:object-center"
+          className="absolute inset-0 w-full h-full object-cover xs:object-[center_20%] sm:object-[center_30%] md:object-center lg:object-center rounded-2xl"
         >
           <source src="https://dj57pv4qm04lm.cloudfront.net/BG2.mp4" type="video/mp4" />
         </video>
         <div 
-          className="absolute inset-0 bg-black transition-opacity duration-1000" 
+          className="absolute inset-0 bg-black transition-opacity duration-1000 rounded-2xl" 
           style={{ opacity: videoOverlayOpacity }}
         />
       </div>
@@ -138,17 +138,12 @@ export default function Home() {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full 
-              object-cover 
-              xs:object-[center_20%] 
-              sm:object-[center_30%] 
-              md:object-center 
-              lg:object-center"
+            className="absolute inset-0 w-full h-full object-cover xs:object-[center_20%] sm:object-[center_30%] md:object-center lg:object-center rounded-2xl"
           >
             <source src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4" type="video/mp4" />
           </video>
           <div 
-            className="absolute inset-0 bg-gradient-to-b from-[#9AA8FF]/30 via-[#9AA8FF]/25 to-[#9AA8FF]/35 backdrop-blur-[2px] transition-opacity duration-700" 
+            className="absolute inset-0 bg-gradient-to-b from-[#9AA8FF]/30 via-[#9AA8FF]/25 to-[#9AA8FF]/35 backdrop-blur-[2px] transition-opacity duration-700 rounded-2xl" 
             style={{ opacity: btsVideoOverlay }}
           />
         </div>
