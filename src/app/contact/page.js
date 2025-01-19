@@ -87,13 +87,6 @@ export default function Contact() {
                 <h3 className="text-white/90 text-sm">Available internationally</h3>
               </div>
 
-              <div className="p-6 rounded-2xl bg-[#9AA8FF]/90 backdrop-blur-md shadow-lg">
-                <h3 className="mb-4 text-xl font-semibold text-white">Contact Details</h3>
-                <div className="space-y-2">
-                  <p className="text-white/90">Email: projects@honestprod.co</p>
-                </div>
-              </div>
-
 
             </div>
 
