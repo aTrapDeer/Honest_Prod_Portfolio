@@ -152,11 +152,11 @@ export default function Home() {
       {/* Main Content */}
       <main className="flex-grow relative z-10">
         {/* Hero Section */}
-        <section className="min-h-screen">
-          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
-            <div className="max-w-3xl mx-auto text-center animate-fade-up">
+        <section className="min-h-screen relative">
+          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen">
+            <div className="w-full max-w-lg mx-auto px-4 text-center animate-fade-up">
               <div 
-                className="mb-8 relative w-full max-w-lg mx-auto transition-opacity duration-1000"
+                className="transition-opacity duration-1000"
                 style={{ opacity: logoOpacity }}
               >
                 <Image
@@ -169,14 +169,16 @@ export default function Home() {
                 />
               </div>
             </div>
-
+          </div>
+          
+          <div className="absolute inset-x-0 bottom-8 flex justify-center z-20">
             <button 
               onClick={scrollToSections}
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce transition-transform hover:scale-110 focus:outline-none w-full max-w-[40px] mx-auto"
+              className="animate-bounce transition-transform hover:scale-110 focus:outline-none"
               style={{ opacity: heroOpacity }}
             >
               <svg
-                className="w-10 h-10 mx-auto text-[#FFDDDD]"  
+                className="w-10 h-10 text-[#FFDDDD]"  
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -214,13 +216,13 @@ export default function Home() {
                   </p>
                   <Link
                       href="/works"
-                      className="inline-flex items-center px-8 py-3 text-sm font-medium bg-[#35B5C2]/60 text-[#FFDDDD] rounded-full hover:bg-[#35B5C2] transition-all duration-300"
+                      className="inline-flex items-center px-8 py-3 text-sm font-medium bg-[#35B5C2]/60 text-[#FFDDDD] rounded-full hover:bg-[#35B5C2] transition-all duration-300 cursor-pointer"
                     >
-                      <span>Our Work</span>
+                      Our Projects
                       <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
-                    </Link>
+                  </Link>
                 </div>
               </div>
             </div>
