@@ -14,7 +14,19 @@ export default function BTS() {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play();
+      try {
+        const el = videoRef.current;
+        el.muted = true;
+        el.setAttribute('playsinline', '');
+        el.setAttribute('webkit-playsinline', '');
+        const tryPlay = () => el.play().catch(() => {});
+        if (el.readyState >= 2) {
+          tryPlay();
+        } else {
+          el.addEventListener('canplay', tryPlay, { once: true });
+          el.load();
+        }
+      } catch {}
     }
   }, []);
 
@@ -34,6 +46,10 @@ export default function BTS() {
           loop
           muted
           playsInline
+          preload="auto"
+          controls={false}
+          disablePictureInPicture
+          controlsList="nodownload noplaybackrate noremoteplayback"
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">

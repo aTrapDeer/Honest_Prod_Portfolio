@@ -50,6 +50,34 @@ export default function Home() {
   const btsVideoRef = useRef(null);
 
   useEffect(() => {
+    // Ensure mobile autoplay: set muted/inline and attempt programmatic play
+    const forceAutoplay = (videoEl) => {
+      if (!videoEl) return;
+      try {
+        videoEl.muted = true;
+        // Ensure inline playback on iOS Safari variants
+        videoEl.setAttribute('playsinline', '');
+        videoEl.setAttribute('webkit-playsinline', '');
+        const tryPlay = () => {
+          videoEl.play().catch(() => {
+            // Swallow errors; some devices block in Low Power Mode
+          });
+        };
+        if (videoEl.readyState >= 2) {
+          tryPlay();
+        } else {
+          videoEl.addEventListener('canplay', tryPlay, { once: true });
+          // Kick off loading if needed
+          videoEl.load();
+        }
+      } catch {}
+    };
+
+    forceAutoplay(heroVideoRef.current);
+    forceAutoplay(btsVideoRef.current);
+  }, []);
+
+  useEffect(() => {
     const logoTimer = setTimeout(() => {
       setLogoOpacity(0);
       setVideoOverlayOpacity(0.2);
@@ -120,6 +148,10 @@ export default function Home() {
           muted
           loop
           playsInline
+          preload="auto"
+          controls={false}
+          disablePictureInPicture
+          controlsList="nodownload noplaybackrate noremoteplayback"
           className="absolute inset-0 w-full h-full object-cover xs:object-[center_20%] sm:object-[center_30%] md:object-center lg:object-center rounded-2xl"
         >
           <source src="https://dj57pv4qm04lm.cloudfront.net/BG2.mp4" type="video/mp4" />
@@ -138,6 +170,10 @@ export default function Home() {
             muted
             loop
             playsInline
+            preload="auto"
+            controls={false}
+            disablePictureInPicture
+            controlsList="nodownload noplaybackrate noremoteplayback"
             className="absolute inset-0 w-full h-full object-cover xs:object-[center_20%] sm:object-[center_30%] md:object-center lg:object-center rounded-2xl"
           >
             <source src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4" type="video/mp4" />
@@ -238,6 +274,10 @@ export default function Home() {
                 muted
                 loop
                 playsInline
+                preload="auto"
+                controls={false}
+                disablePictureInPicture
+                controlsList="nodownload noplaybackrate noremoteplayback"
                 className="absolute inset-0 w-full h-full 
                   object-cover 
                   xs:object-[center_20%] 

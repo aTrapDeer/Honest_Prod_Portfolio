@@ -50,10 +50,31 @@ export default function Contact() {
       {/* Video Background */}
       <div className="fixed inset-0 -z-10">
         <video
+          ref={videoRef => {
+            // keep a local ref for autoplay enforcement
+            if (videoRef) {
+              try {
+                videoRef.muted = true;
+                videoRef.setAttribute('playsinline', '');
+                videoRef.setAttribute('webkit-playsinline', '');
+                const tryPlay = () => videoRef.play().catch(() => {});
+                if (videoRef.readyState >= 2) {
+                  tryPlay();
+                } else {
+                  videoRef.addEventListener('canplay', tryPlay, { once: true });
+                  videoRef.load();
+                }
+              } catch {}
+            }
+          }}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
+          controls={false}
+          disablePictureInPicture
+          controlsList="nodownload noplaybackrate noremoteplayback"
           className="object-cover w-full h-full"
         >
           <source src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4" type="video/mp4" />
