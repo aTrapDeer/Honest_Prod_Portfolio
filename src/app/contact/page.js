@@ -55,8 +55,10 @@ export default function Contact() {
             if (videoRef) {
               try {
                 videoRef.muted = true;
+                videoRef.defaultMuted = true;
                 videoRef.setAttribute('playsinline', '');
                 videoRef.setAttribute('webkit-playsinline', '');
+                videoRef.playsInline = true;
                 const tryPlay = () => videoRef.play().catch(() => {});
                 if (videoRef.readyState >= 2) {
                   tryPlay();
@@ -70,15 +72,18 @@ export default function Contact() {
           autoPlay
           loop
           muted
+          defaultMuted
           playsInline
+          webkit-playsinline="true"
           preload="auto"
           controls={false}
           disablePictureInPicture
-          controlsList="nodownload noplaybackrate noremoteplayback"
+          disableRemotePlayback
+          controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
           className="object-cover w-full h-full"
-        >
-          <source src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4" type="video/mp4" />
-        </video>
+          style={{ pointerEvents: 'none' }}
+          src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4"
+        />
         <div className="absolute inset-0 bg-black/55" />
       </div>
 

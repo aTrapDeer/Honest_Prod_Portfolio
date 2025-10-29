@@ -55,7 +55,9 @@ export default function Home() {
       if (!videoEl) return;
       try {
         videoEl.muted = true;
+        videoEl.defaultMuted = true;
         // Ensure inline playback on iOS Safari variants
+        videoEl.playsInline = true;
         videoEl.setAttribute('playsinline', '');
         videoEl.setAttribute('webkit-playsinline', '');
         const tryPlay = () => {
@@ -146,16 +148,19 @@ export default function Home() {
           ref={heroVideoRef}
           autoPlay
           muted
+          defaultMuted
           loop
           playsInline
+          webkit-playsinline="true"
           preload="auto"
           controls={false}
           disablePictureInPicture
-          controlsList="nodownload noplaybackrate noremoteplayback"
+          disableRemotePlayback
+          controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
           className="absolute inset-0 w-full h-full object-cover xs:object-[center_20%] sm:object-[center_30%] md:object-center lg:object-center rounded-2xl"
-        >
-          <source src="https://dj57pv4qm04lm.cloudfront.net/BG2.mp4" type="video/mp4" />
-        </video>
+          style={{ pointerEvents: 'none' }}
+          src="https://dj57pv4qm04lm.cloudfront.net/BG2.mp4"
+        />
         <div 
           className="absolute inset-0 bg-black transition-opacity duration-1000 rounded-2xl" 
           style={{ opacity: videoOverlayOpacity }}
@@ -168,16 +173,19 @@ export default function Home() {
             ref={btsVideoRef}
             autoPlay
             muted
+            defaultMuted
             loop
             playsInline
+            webkit-playsinline="true"
             preload="auto"
             controls={false}
             disablePictureInPicture
-            controlsList="nodownload noplaybackrate noremoteplayback"
+            disableRemotePlayback
+            controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
             className="absolute inset-0 w-full h-full object-cover xs:object-[center_20%] sm:object-[center_30%] md:object-center lg:object-center rounded-2xl"
-          >
-            <source src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4" type="video/mp4" />
-          </video>
+            style={{ pointerEvents: 'none' }}
+            src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4"
+          />
           <div 
             className="absolute inset-0 bg-gradient-to-b from-[#9AA8FF]/30 via-[#9AA8FF]/25 to-[#9AA8FF]/35 backdrop-blur-[2px] transition-opacity duration-700 rounded-2xl" 
             style={{ opacity: btsVideoOverlay }}
@@ -284,6 +292,7 @@ export default function Home() {
                   sm:object-[center_30%] 
                   md:object-center 
                   lg:object-center"
+                style={{ pointerEvents: 'none' }}
               >
                 <source src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4" type="video/mp4" />
               </video>

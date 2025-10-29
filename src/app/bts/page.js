@@ -17,8 +17,10 @@ export default function BTS() {
       try {
         const el = videoRef.current;
         el.muted = true;
+        el.defaultMuted = true;
         el.setAttribute('playsinline', '');
         el.setAttribute('webkit-playsinline', '');
+        el.playsInline = true;
         const tryPlay = () => el.play().catch(() => {});
         if (el.readyState >= 2) {
           tryPlay();
@@ -41,15 +43,19 @@ export default function BTS() {
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ pointerEvents: 'none' }}
           src="https://dj57pv4qm04lm.cloudfront.net/BTS.mp4"
           autoPlay
           loop
           muted
+          defaultMuted
           playsInline
+          webkit-playsinline="true"
           preload="auto"
           controls={false}
           disablePictureInPicture
-          controlsList="nodownload noplaybackrate noremoteplayback"
+          disableRemotePlayback
+          controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
